@@ -1,0 +1,34 @@
+name: 02 - Execução Agendada
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+
+jobs:
+  scheduled-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes
+        run: npm test
+
+      - name: Armazenar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-execucao-agendada
+          path: |
+            reports/
+            playwright-report/
+            test-results/

@@ -1,0 +1,40 @@
+name: 04 - Execução Integrada CI
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 12 * * 1'
+
+jobs:
+  integrated-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes automatizados
+        run: npm test
+
+      - name: Armazenar relatório da execução
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-integrado-ci
+          path: |
+            reports/
+            playwright-report/
+            test-results/
