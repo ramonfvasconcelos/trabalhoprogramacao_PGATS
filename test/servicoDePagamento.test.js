@@ -64,3 +64,13 @@ describe('Classe de Serviço de Pagamento', function() {
 
 
 
+/*
+
+git add .
+git commit -m "corrige espaços demasiados no codigo"
+git push
+
+*/
+
+
+asdasdasdasdasd
