@@ -35,6 +35,4 @@ jobs:
         with:
           name: relatorio-integrado-ci
           path: |
-            reports/
-            playwright-report/
-            test-results/
+            mochawesome-report/

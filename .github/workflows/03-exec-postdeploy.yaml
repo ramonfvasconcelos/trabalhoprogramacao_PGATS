@@ -30,6 +30,4 @@ jobs:
         with:
           name: relatorio-pos-deploy
           path: |
-            reports/
-            playwright-report/
-            test-results/
+            mochawesome-report/

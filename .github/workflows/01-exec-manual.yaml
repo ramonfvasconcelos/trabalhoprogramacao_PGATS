@@ -28,6 +28,4 @@ jobs:
         with:
           name: relatorio-execucao-manual
           path: |
-            reports/
-            playwright-report/
-            test-results/
+            mochawesome-report/

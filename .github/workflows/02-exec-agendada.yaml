@@ -31,6 +31,4 @@ jobs:
         with:
           name: relatorio-execucao-agendada
           path: |
-            reports/
-            playwright-report/
-            test-results/
+            mochawesome-report/
